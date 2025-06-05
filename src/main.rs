@@ -6,7 +6,7 @@ use rss_puller::extractor::RssClient;
 #[tokio::main]
 async fn main() -> Result<()> {
     
-    let rss = RssClient::new("https://spacenews.com/feed/");
+    let rss = RssClient::new("https://spacenews.com/feed/").await.join_content_into_html().await;
     println!("{rss:#?}");
     /*
     //let url = "https://www.darpa.mil/rss.xml";
